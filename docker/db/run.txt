@@ -1,0 +1,6 @@
+docker run --name db \
+           -e POSTGRES_PASSWORD=root \
+           -v /data:/var/lib/postgresql/data \
+           -p 5432:5432 \
+           -d \
+           postgres:bullseye
