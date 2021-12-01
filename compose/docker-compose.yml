@@ -1,0 +1,18 @@
+services:
+  web:
+    image: leodbrs/projetdevops
+    ports:
+      - "80:80"
+    depends_on:
+      - database
+    volumes:
+      - ../conf/dvdrental.conf:/etc/apache2/sites-available/dvdrental.conf
+      - ../app:/var/www/dvdrental/app
+  database:
+    image: postgres:bullseye
+    ports:
+      - "5432:5432"
+    volumes:
+      - /data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
