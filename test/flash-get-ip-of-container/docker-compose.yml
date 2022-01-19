@@ -4,6 +4,10 @@ services:
   web:
     image: 127.0.0.1:5000/web
     build: web/
+    depends_on:
+      - database
+    links:
+      - "database"
     ports:
       - "8000:8000"
   database:
