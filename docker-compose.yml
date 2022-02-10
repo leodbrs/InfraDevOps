@@ -57,15 +57,16 @@ services:
         volumes:
             - /data/dvdrental/config/dvdrental.conf:/etc/apache2/sites-available/dvdrental.conf
             - /data/dvdrental/app:/var/www/dvdrental/app
+
     database:
         image: postgres:bullseye
         deploy:
             placement:
                 constraints:
-                    - node.role == master
+                    - node.role == manager
         volumes:
             - database:/var/lib/postgresql/data
-            - database/init.sql:/docker-entrypoint-initdb.d/init.sql
+            - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
         environment:
             - POSTGRES_USER=${POSTGRES_USER}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
