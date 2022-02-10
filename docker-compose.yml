@@ -4,6 +4,10 @@ networks:
     traefik-public:
         external: true
 
+volumes:
+    database:
+        external: true
+
 services:
     reverse-proxy:
         image: traefik
@@ -39,10 +43,13 @@ services:
             # - database
             - reverse-proxy
         deploy:
+            placement:
+                constraints:
+                    - node.role == worker
             replicas: 10
             labels:
                 - traefik.enable=true
-                - traefik.http.routers.web.rule=Host(`192.168.128.140`)
+                - traefik.http.routers.web.rule=Host(`192.168.128.150`)
                 - traefik.http.routers.web.entrypoints=web
                 - traefik.http.services.web.loadbalancer.server.port=80
         networks:
@@ -50,14 +57,16 @@ services:
         volumes:
             - /data/dvdrental/config/dvdrental.conf:/etc/apache2/sites-available/dvdrental.conf
             - /data/dvdrental/app:/var/www/dvdrental/app
-            # database:
-            #   image: postgres:bullseye
-            #   ports:
-            #     - 5432:5432
-            #   volumes:
-            #     - database:/var/lib/postgresql/data
-            # - "$PWD"/database/init.sql:/docker-entrypoint-initdb.d/init.sql
-            #   environment:
-            #     - POSTGRES_USER=${POSTGRES_USER}
-            #     - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-            #     - POSTGRES_DB=${POSTGRES_DB}
+    database:
+        image: postgres:bullseye
+        deploy:
+            placement:
+                constraints:
+                    - node.role == master
+        volumes:
+            - database:/var/lib/postgresql/data
+            - database/init.sql:/docker-entrypoint-initdb.d/init.sql
+        environment:
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${POSTGRES_DB}
