@@ -1,36 +1,36 @@
 machines=[
   {
-    :hostname => "worker1",
-    :box => "mathisc/infradevops",
-    :ram => 1024,
-    :cpu => 1,
-    :ip => "10.0.0.3"
-  },
-  {
-    :hostname => "worker2",
-    :box => "mathisc/infradevops",
-    :ram => 1024,
-    :cpu => 2,
-    :ip => "10.0.0.2"
-  },
-  {
     :hostname => "master",
     :box => "mathisc/infradevops",
     :ram => 2048,
     :cpu => 2,
-    :ip => "10.0.0.4"
+    :ip => "192.168.56.11"
+  },
+  {
+    :hostname => "worker-01",
+    :box => "mathisc/infradevops",
+    :ram => 1024,
+    :cpu => 1,
+    :ip => "192.168.56.21"
+  },
+  {
+    :hostname => "worker-02",
+    :box => "mathisc/infradevops",
+    :ram => 1024,
+    :cpu => 2,
+    :ip => "192.168.56.22"
   }
 ]
 Vagrant.configure("2") do |config|
   machines.each do |machine|
 
-    config.vm.usable_port_range = 20000..20010
+    # config.vm.usable_port_range = 20000..20010
     config.vm.define machine[:hostname] do |node|
       node.vm.box = machine[:box]
       node.vm.hostname = machine[:hostname]
-      # node.vm.network "private_network", ip:machine[:ip]
-      node.vm.network "public_network"
-      node.vm.network "forwarded_port", guest: 22, host: 20000, id: "ssh", auto_correct: true
+      node.vm.network "private_network", ip:machine[:ip]
+      # node.vm.network "public_network"
+      # node.vm.network "forwarded_port", guest: 22, host: 20000, id: "ssh", auto_correct: true
       # node.vbguest.auto_update = false
       node.vm.provider "virtualbox" do |vb|
         vb.gui = false
