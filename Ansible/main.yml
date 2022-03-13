@@ -12,7 +12,7 @@
   hosts: manager
   become: true
   roles:
-      - master
+      - manager
 
 - name: Make workers join the cluster
   hosts: workers
