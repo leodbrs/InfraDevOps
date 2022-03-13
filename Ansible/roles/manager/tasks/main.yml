@@ -7,10 +7,10 @@
 - name: Initialize a cluster
   shell: >
       docker swarm init
-      --advertise-addr={{ hostvars[inventory_hostname]['swarm_host'] }}:2377 --quiet
+      --advertise-addr={{ hostvars[inventory_hostname]['swarm_host'] }}:2377
   when: swarm_status.rc != 0
   run_once: true
 
 - name: Get the worker join-token
-  shell: docker swarm join-token worker
+  shell: docker swarm join-token worker --quiet
   register: worker_token
