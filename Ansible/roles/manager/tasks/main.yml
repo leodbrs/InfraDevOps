@@ -14,6 +14,5 @@
 - name: Get the worker join-token
   shell: docker swarm join-token --quiet worker
   register: worker_token
-
-- debug:
-  var: worker_token
+  debug:
+      var: worker_token
