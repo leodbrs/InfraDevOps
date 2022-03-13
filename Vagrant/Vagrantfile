@@ -39,7 +39,7 @@ Vagrant.configure("2") do |config|
   # Provision the nodes with Ansible
   config.vm.provision :ansible do |ansible|
     ansible.host_vars = { "manager" => { "swarm_host" => nodes[0][:ip] } }
-    ansible.groups = { "workers" => { ["worker-01", "worker-02"] } }
+    ansible.groups = { "workers" => ["worker-01", "worker-02"] }
     ansible.playbook = "../Ansible/main.yml"
   end
 end
