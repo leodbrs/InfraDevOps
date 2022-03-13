@@ -35,7 +35,7 @@ Vagrant.configure("2") do |config|
         vb.cpus = nodes[:cpu]
       end
     end
-    N++
+    N=N+1
   end
 
   # Provision the nodes with Ansible
