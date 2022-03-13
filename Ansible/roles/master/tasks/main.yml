@@ -3,17 +3,14 @@
   shell: docker node ls
   register: swarm_status
   ignore_errors: true
-  tags: swarm
 
-- name: Initialize Docker Swarm
+- name: Initialize a cluster
   shell: >
       docker swarm init
-      --advertise-addr={{ hostvars[inventory_hostname]['swarm_host'] }}
+      --advertise-addr={{ hostvars[inventory_hostname]['swarm_host'] }}:2377
   when: swarm_status.rc != 0
   run_once: true
-  tags: swarm
 
 - name: Get the worker join-token
   shell: docker swarm join-token --quiet worker
   register: worker_token
-  tags: swarm
