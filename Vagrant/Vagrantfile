@@ -25,6 +25,8 @@ Vagrant.configure("2") do |config|
   # Start the nodes
   nodes.each do |nodes|
     config.vm.define nodes[:hostname] do |node|
+      n = n + 1
+      print n
       node.vm.box = "debian/buster64"
       node.vm.hostname = nodes[:hostname]
       node.vm.network "private_network", ip:nodes[:ip]
@@ -35,8 +37,6 @@ Vagrant.configure("2") do |config|
         vb.cpus = nodes[:cpu]
       end
     end
-    n = n + 1
-    print n
   end
 
   # Provision the nodes with Ansible
