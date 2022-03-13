@@ -2,21 +2,18 @@
 nodes = [
   {
     :hostname => "manager",
-    :box => "mathisc/infradevops",
     :ram => 2048,
     :cpu => 2,
     :ip => "192.168.56.11"
   },
   {
     :hostname => "worker-01",
-    :box => "mathisc/infradevops",
     :ram => 1024,
     :cpu => 1,
     :ip => "192.168.56.21"
   },
   {
     :hostname => "worker-02",
-    :box => "mathisc/infradevops",
     :ram => 1024,
     :cpu => 2,
     :ip => "192.168.56.22"
@@ -27,7 +24,7 @@ Vagrant.configure("2") do |config|
   # Start the nodes
   nodes.each do |nodes|
     config.vm.define nodes[:hostname] do |node|
-      node.vm.box = nodes[:box]
+      node.vm.box = "debian/buster64"
       node.vm.hostname = nodes[:hostname]
       node.vm.network "private_network", ip:nodes[:ip]
       node.vbguest.auto_update = false
@@ -43,7 +40,7 @@ Vagrant.configure("2") do |config|
   config.vm.provision :ansible do |ansible|
     ansible.verbose = true
     ansible.playbook = "../Ansible/cluster.yml"
-    ansible.playbook = "../Ansible/master.yml"
-    ansible.playbook = "../Ansible/worker.yml"
+    # ansible.playbook = "../Ansible/master.yml"
+    # ansible.playbook = "../Ansible/worker.yml"
   end
 end
