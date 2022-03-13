@@ -15,6 +15,7 @@
   shell: docker swarm join-token --quiet worker
   register: worker_token
 
-- name: set a new variable
-  set_fact:
-      worker_token: "{{ worker_token.stdout }}"
+- name: Keep worker_token in a file
+  copy:
+      content: "{{ worker_token }}"
+      dest: worker_token
