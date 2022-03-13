@@ -1,6 +1,6 @@
 # Define node properties
 nodes = [
-  {
+  manager = {
     :hostname => "manager",
     :ram => 2048,
     :cpu => 2,
@@ -38,8 +38,9 @@ Vagrant.configure("2") do |config|
 
   # Provision the nodes with Ansible
   config.vm.provision :ansible do |ansible|
+    ansible.host_vars = { "manager" => { "swarm_host" => nodes[manager][:ip] } }
     ansible.playbook = "../Ansible/cluster.yml"
-    # ansible.playbook = "../Ansible/master.yml"
+    ansible.playbook = "../Ansible/master.yml"
     # ansible.playbook = "../Ansible/worker.yml"
   end
 end
