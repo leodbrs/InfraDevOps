@@ -1,0 +1,14 @@
+---
+# This playbook deploys the swarm cluster
+
+- name: Apply common configuration to all nodes
+  hosts: all
+
+  roles:
+      - common
+
+- name: configure and deploy the webservers and application code
+  hosts: manager
+
+  roles:
+      - master
