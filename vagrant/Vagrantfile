@@ -45,4 +45,5 @@ Vagrant.configure("2") do |config|
     ansible.playbook = "../Ansible/cluster.yml"
     ansible.playbook = "../Ansible/master.yml"
     ansible.playbook = "../Ansible/worker.yml"
+  end
 end
