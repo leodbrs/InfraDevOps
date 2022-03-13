@@ -3,4 +3,4 @@
   shell: >
       docker swarm join
       --token {{ hostvars['manager']['worker_token']['stdout'] }}
-      {{ hostvars[inventory_hostname]['swarm_host'] }}:2377
+      {{ hostvars['manager']['swarm_host'] }}:2377
