@@ -1,6 +1,3 @@
 ---
 - name: Add Workers to the Swarm
-  shell: >
-      docker swarm join
-      --token {{ hostvars['manager']['worker_token']['stdout'] }}
-      {{ hostvars['manager']['swarm_host'] }}:2377
+  shell: "docker swarm join --token {{ hostvars['manager']['worker_token']['stdout'] }} {{ hostvars['manager']['swarm_host'] }}:2377"
