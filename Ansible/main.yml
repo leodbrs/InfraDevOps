@@ -3,12 +3,17 @@
 
 - name: Apply common configuration to all nodes
   hosts: all
+  become: true
+  vars_files:
+      - vars.yml
+  strategy: free
 
   roles:
       - common
 
 - name: configure and deploy the webservers and application code
   hosts: manager
+  become: true
 
   roles:
       - master
