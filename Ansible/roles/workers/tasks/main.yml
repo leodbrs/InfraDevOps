@@ -1,11 +1,6 @@
 ---
-- name: Put content of a file to a variable
-  copy:
-      src: worker_token
-      dest: "{{ worker_token }}"
-
 - name: Add Workers to the Swarm
   shell: >
       docker swarm join 
-      --token {{ worker_token }}
+      --token {{ hostvars['manager']['worker_token']['stdout'] }}
       {{ hostvars['manager']['swarm_host'] }}:2377
