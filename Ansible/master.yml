@@ -1,5 +1,5 @@
 ---
-- hosts: swarm-master-1
+- hosts: manager
   become: true
 
   tasks:
@@ -15,11 +15,6 @@
             --advertise-addr={{ hostvars[inventory_hostname]['swarm_host'] }}
         when: swarm_status.rc != 0
         run_once: true
-        tags: swarm
-
-      - name: Get the Manager join-token
-        shell: docker swarm join-token --quiet manager
-        register: manager_token
         tags: swarm
 
       - name: Get the worker join-token
