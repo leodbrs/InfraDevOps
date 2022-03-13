@@ -1,0 +1,42 @@
+---
+- hosts: all
+  become: true
+  vars_files:
+      - vars.yml
+  strategy: free
+
+  tasks:
+      - name: Install required system packages
+        apt:
+            name: { { item } }
+            state: latest
+            update_cache: yes
+        loop: ["ca-certificates", "curl", "gnupg", "lsb-release", "git"]
+
+      - name: Add Docker GPG apt Key
+        apt_key:
+            url: https://download.docker.com/linux/debian/gpg
+            state: present
+      - name: Add Docker Repository
+        apt_repository:
+            repo: deb https://download.docker.com/linux/debian bionic stable
+            state: present
+
+      - name: Update apt and install docker-ce
+        apt:
+            name: docker-ce
+            update_cache: yes
+            state: latest
+
+      - name: Add user vagrant to the docker group
+        user:
+            name: vagrant
+            groups: docker
+            append: yes
+
+      - name: Install docker-compose
+        remote_user: ubuntu
+        get_url:
+            url: https://github.com/docker/compose/releases/download/1.25.1-rc1/docker-compose-Linux-x86_64
+            dest: /usr/local/bin/docker-compose
+            mode: "u+x,g+x"

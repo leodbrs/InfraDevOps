@@ -1,0 +1,6 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-playbook.json": "file:///d%3A/Leo/Devs/Projet/InfraDevOps/Ansible/cluster.yml",
+        "https://raw.githubusercontent.com/ansible-community/schemas/main/f/ansible-vars.json": "file:///d%3A/Leo/Devs/Projet/InfraDevOps/Ansible/vars.yml"
+    }
+}
