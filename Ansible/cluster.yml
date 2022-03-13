@@ -8,7 +8,7 @@
   tasks:
       - name: Install required system packages
         apt:
-            name: { { item } }
+            name: "{{ item }}"
             state: latest
             update_cache: yes
         loop: ["ca-certificates", "curl", "gnupg", "lsb-release", "git"]
