@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cd Vagrant/
 vagrant up
 cd ../Ansible
