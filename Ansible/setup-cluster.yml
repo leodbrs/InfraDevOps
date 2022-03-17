@@ -19,3 +19,9 @@
   become: true
   roles:
       - workers
+
+- name: Configure and start the Docker service
+  hosts: manager
+  become: true
+  roles:
+      - docker
