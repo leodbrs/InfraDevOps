@@ -4,7 +4,7 @@
       name: "{{ item }}"
       state: latest
       update_cache: yes
-  loop: ["ca-certificates", "curl", "gnupg", "lsb-release", "git"]
+  loop: ["ca-certificates", "curl", "gnupg", "lsb-release", "git", "nfs-common"]
 
 - name: Add Docker GPG apt Key
   apt_key:
