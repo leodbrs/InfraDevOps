@@ -8,4 +8,4 @@
   file: path=/data/dvdrental state=directory mode=777 owner=root group=root
 
 - name: Set mountpoints
-  mount: name=/nfs src={{ hostvars['manager']['swarm_host'] }}:/data/dvdrental
+  mount: name=/nfs src={{ hostvars['manager']['swarm_host'] }}:/data/dvdrental state=mounted
