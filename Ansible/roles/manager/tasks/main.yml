@@ -36,6 +36,11 @@
       path: /tmp/DVD-Rental/
       state: absent
 
+- name: Moving WebApp folder
+  copy:
+      src: ../../../../Docker/web/dvdrental.conf
+      dest: /data/dvdrental/config/
+
 - name: Install nfs-kernel-server packages
   apt:
       name: nfs-kernel-server
