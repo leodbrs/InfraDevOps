@@ -8,13 +8,13 @@
   roles:
       - common
 
-- name: Initialize the cluster on the manager
+- name: Initialize the cluster on the manager and Deploys Docker Web Site
   hosts: manager
   become: true
   roles:
       - manager
 
-- name: Make workers join the cluster
+- name: Make workers join the cluster and configure NFS client
   hosts: workers
   become: true
   roles:
