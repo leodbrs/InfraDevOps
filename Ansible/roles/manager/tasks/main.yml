@@ -15,8 +15,23 @@
   shell: docker swarm join-token worker --quiet
   register: worker_token
 
-- name: Download GitHub repository
+- name: Download Cluster GitHub repository
   git: >
-      repo=ssh://git@github.com:leodbrs/InfraDevOps.git
-      key_file=/root/.ssh/id_rsa.pub
+      repo=https://leodbrs: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@github.com/leodbrs/InfraDevOps.git
       dest=/production/
+
+- name: Download WebApp GitHub repository
+  git: >
+      repo=https://leodbrs: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@github.com/leodbrs/DVD-Rental.git
+      dest=/tmp/DVD-Rental/
+
+- name: Moving WebApp folder
+  copy:
+      remote_src: true
+      src: "/tmp/DVD-Rental/app"
+      dest: "/data/dvdrental/"
+
+- name: Removing WebApp GitHub repository
+  file:
+      path: /tmp/DVD-Rental/
+      state: absent
