@@ -28,10 +28,22 @@
 - name: Moving WebApp folder
   copy:
       remote_src: true
-      src: "/tmp/DVD-Rental/app"
-      dest: "/data/dvdrental/"
+      src: /tmp/DVD-Rental/app
+      dest: /data/dvdrental/
 
 - name: Removing WebApp GitHub repository
   file:
       path: /tmp/DVD-Rental/
       state: absent
+
+- name: Install nfs-kernel-server packages
+  apt:
+      name: nfs-kernel-server
+      state: latest
+      update_cache: yes
+
+- name: Copy /etc/exports
+  template: src=exports.j2 dest=/etc/exports owner=root group=root
+
+- name: Restart nfs server
+  service: name=nfs-kernel-server state=restarted
