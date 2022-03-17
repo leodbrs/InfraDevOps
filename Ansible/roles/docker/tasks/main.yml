@@ -5,4 +5,4 @@
 
 - name: Deploy a service to the Cluster
   shell: >
-      docker stack deploy --compose-file /production/InfraDevOps/docker-compose.yml infradevops
+      docker stack deploy --compose-file /production/InfraDevOps/Docker/docker-compose.yml infradevops
