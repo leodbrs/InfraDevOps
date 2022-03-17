@@ -1,8 +1,9 @@
 #!/bin/bash
 
-cd Vagrant/
+WORKDIR=`pwd`
+cd $WORKDIR/Vagrant/
 vagrant up
-cd ../Ansible
+cd $WORKDIR/Ansible
 ansible-playbook -i \
-    ../Vagrant/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory \
+    $WORKDIR/Vagrant/.vagrant/provisioners/ansible/inventory/vagrant_ansible_inventory \
     setup-cluster.yml
