@@ -18,7 +18,7 @@
 - name: Download Cluster GitHub repository
   git: >
       repo=https://leodbrs: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@github.com/leodbrs/InfraDevOps.git
-      dest=/production/
+      dest=/production/InfraDevOps/
 
 - name: Download WebApp GitHub repository
   git: >
