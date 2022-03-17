@@ -1,0 +1,8 @@
+---
+- name: Create a network for traefik
+  shell: >
+      docker network create --driver=overlay traefik-public
+
+- name: Deploy a service to the Cluster
+  shell: >
+      docker stack deploy --compose-file /production/InfraDevOps/docker-compose.yml infradevops
