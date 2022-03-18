@@ -38,7 +38,7 @@ services:
             - --log.level=DEBUG
 
     web:
-        image: leodbrs/dvdrental
+        build: ./web/
         depends_on:
             # - database
             - reverse-proxy
