@@ -6,13 +6,13 @@ Second year project of DUT Network and telecommunications.
 
 ### Requirement
 
--   Virtualbox
--   Vagrant
--   Ansible
+-   [Virtualbox](https://www.virtualbox.org/)
+-   [Vagrant](https://www.vagrantup.com/)
+-   [Ansible]()
 
-### Starting
+### Deployment
 
-To start the project, click on the repository and start the script.
+To deploy the project, click on the repository and run the script.
 
 ```bash
 ./start.sh
