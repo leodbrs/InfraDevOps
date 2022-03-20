@@ -15,7 +15,7 @@ Second year project of DUT Network and telecommunications.
 To start the project, click on the repository and start the script.
 
 ```bash
-./start
+./start.sh
 ```
 
 ## Authors
