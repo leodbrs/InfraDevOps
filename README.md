@@ -1,6 +1,6 @@
 # InfraDevOps
 
-Second year project of DUT Network and telecommunications.
+DevOps Infrastructure (Second year project of DUT Networks and Telecommunication, Université Savoie Mont Blanc).
 
 ## Getting Started
 
