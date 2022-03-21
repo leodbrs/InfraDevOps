@@ -46,6 +46,14 @@
     path: /data/dvdrental/sessions/
     state: directory
 
+- name: Change folder permissions
+  file:
+    dest: /foo/bar/somedir
+    owner: root
+    group: root
+    mode: u=rwX,g=rwX,o=rwX
+    recurse: yes
+
 - name: Install nfs-kernel-server packages
   apt:
       name: nfs-kernel-server
