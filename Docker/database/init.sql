@@ -58,8 +58,7 @@ CREATE TABLE Appartenir (
     RefGenre INTEGER NOT NULL REFERENCES Genre ON UPDATE CASCADE ON DELETE SET NULL
 );
 ALTER USER dvdrental WITH PASSWORD 'Pa$$word';
-INSERT INTO Vendeur (nomVendeur, prenomVendeur, nomUtilisateur, motDePasse) VALUES
-("root", "root", "root", "63a9f0ea7bb98050796b649e85481845");
+INSERT INTO vendeur (nomvendeur, prenomvendeur, nomutilisateur, motdepasse) VALUES ("root", "root", "root", "63a9f0ea7bb98050796b649e85481845");
 INSERT INTO film (titrefile, description, image) VALUES
 ("Demon Slayer : Le train de l'infini", "Le groupe de Tanjirô a terminé son entraînement de récupération au domaine des papillons et embarque à présent en vue de sa prochaine mission à bord du train de l'infini, d'où quarante personnes ont disparu en peu de temps. Tanjirô et Nezuko, accompagnés de Zen'itsu et Inosuke, s'allient à l'un des plus puissants épéistes de l'armée des pourfendeurs de démons, le Pilier de la Flamme Kyôjurô Rengoku, afin de contrer le démon qui a engagé le train de l'Infini sur une voie funeste.", "demonslayer.jpg"),
 ("Harry Potter à l'école des sorciers", "Harry Potter, un jeune orphelin, est élevé par son oncle et sa tante qui le détestent. Alors qu'il était haut comme trois pommes, ces derniers lui ont raconté que ses parents étaient morts dans un accident de voiture. Le jour de son onzième anniversaire, Harry reçoit la visite inattendue d'un homme gigantesque se nommant Rubeus Hagrid, et celui-ci lui révèle qu'il est en fait le fils de deux puissants magiciens et qu'il possède lui aussi d'extraordinaires pouvoirs.", "HARRYPOTTER1.jpg");
