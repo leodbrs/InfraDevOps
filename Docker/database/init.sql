@@ -59,9 +59,9 @@ CREATE TABLE Appartenir (
 );
 ALTER USER dvdrental WITH PASSWORD 'Pa$$word';
 
-INSERT INTO vendeur (nomvendeur, nomutilisateur, motdepasse) 
+INSERT INTO vendeur (nomvendeur, prenomVendeur, nomutilisateur, motdepasse)
 VALUES 
-('root', 'root', '63a9f0ea7bb98050796b649e85481845');
+('Victor', 'Hugo', 'root', '63a9f0ea7bb98050796b649e85481845');
 
 INSERT INTO film (titreFilm, description, image) 
 VALUES
