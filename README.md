@@ -20,6 +20,6 @@ To deploy the project, click on the repository and run the script.
 
 ## Authors
 
--   **Léo D.** - _Initial work_ - [leodbrs](https://github.com/leodbrs)
--   **Mathis C.** - _Initial work_ - [skypiaa7](https://github.com/skypiaa7)
--   **Ryan B.** - _Initial work_ - [Ryan73-coder](https://github.com/Ryan73-coder)
+- **Léo D.** - _Initial work_ - [leodbrs](https://github.com/leodbrs)
+- **Mathis C.** - _Initial work_ - [skypiaa7](https://github.com/skypiaa7)
+- **Ryan B.** - _Initial work_ - [Ryan73-coder](https://github.com/Ryan73-coder)
