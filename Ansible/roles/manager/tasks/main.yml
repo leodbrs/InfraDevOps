@@ -22,7 +22,7 @@
 
 - name: Download WebApp GitHub repository
   git: >
-      repo=https://github.com/leodbrs/InfraDevOps
+      repo=https://github.com/leodbrs/DVD-Rental
       dest=/tmp/DVD-Rental/
 
 - name: Moving WebApp folder
