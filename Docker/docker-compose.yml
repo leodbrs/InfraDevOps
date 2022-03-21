@@ -18,14 +18,11 @@ services:
         networks:
             - traefik-public
         ports:
-            - 80:80
-            - 8080:8080
-            - 8081:8081
-            # - "443:443"
+            - "80:80"
+            - "8080:8080"
+            - "8081:8081"
         volumes:
             - "/var/run/docker.sock:/var/run/docker.sock:ro"
-            # volumes:
-            #   - ./reverse-proxy/traefik.yml:/etc/traefik/traefik.yml
         command:
             - --providers.docker.endpoint=unix:///var/run/docker.sock
             - --providers.docker.network=traefik-public
@@ -59,13 +56,14 @@ services:
         volumes:
             - /data/dvdrental/config/dvdrental.conf:/etc/apache2/sites-available/dvdrental.conf
             - /data/dvdrental/app:/var/www/dvdrental/app
+            - /data/dvdrental/sessions/:/var/lib/php/sessions/
 
     whoami:
         image: traefik/whoami
         depends_on:
             - reverse-proxy
         ports:
-            - 5000:80
+            - "5000:80"
         deploy:
             placement:
                 constraints:
@@ -81,8 +79,6 @@ services:
 
     database:
         image: postgres:bullseye
-        ports:
-            - 5432:5432
         deploy:
             placement:
                 constraints:
