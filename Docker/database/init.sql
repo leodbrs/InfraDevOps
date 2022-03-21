@@ -63,9 +63,9 @@ INSERT INTO vendeur (nomvendeur, nomutilisateur, motdepasse)
 VALUES 
 ('root', 'root', '63a9f0ea7bb98050796b649e85481845');
 
-INSERT INTO film (titrefile, description, image) 
+INSERT INTO film (titreFilm, description, image) 
 VALUES
-("Demon Slayer : Le train de l infini", 'Description', 'demonslayer.jpg'),
+('Demon Slayer : Le train de l infini', 'Description', 'demonslayer.jpg'),
 ('Harry Potter à l école des sorciers', 'Description 2', 'HARRYPOTTER1.jpg');
 
 INSERT INTO ville (nomville, codepostal) 
