@@ -41,6 +41,11 @@
       src: ../../../../Docker/web/dvdrental.conf
       dest: /data/dvdrental/config/
 
+- name: Creating a sessions folder
+  file:
+    path: /data/dvdrental/sessions/
+    state: directory
+
 - name: Install nfs-kernel-server packages
   apt:
       name: nfs-kernel-server
