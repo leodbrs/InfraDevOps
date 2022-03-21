@@ -17,12 +17,12 @@
 
 - name: Download Cluster GitHub repository
   git: >
-      repo=https://leodbrs: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@github.com/leodbrs/InfraDevOps.git
+      repo=https://github.com/leodbrs/InfraDevOps
       dest=/production/InfraDevOps/
 
 - name: Download WebApp GitHub repository
   git: >
-      repo=https://leodbrs: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@github.com/leodbrs/DVD-Rental.git
+      repo=https://github.com/leodbrs/InfraDevOps
       dest=/tmp/DVD-Rental/
 
 - name: Moving WebApp folder
