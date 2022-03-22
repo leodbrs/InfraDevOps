@@ -48,7 +48,7 @@
 
 - name: Change folder permissions
   file:
-    dest: /foo/bar/somedir
+    dest: /data/dvdrental/sessions/
     owner: root
     group: root
     mode: u=rwX,g=rwX,o=rwX
