@@ -3,9 +3,9 @@
   shell: >
       docker network create --driver=overlay traefik-public
 
-- name: Deploy a service to the Cluster
-  shell: >
-      docker stack deploy --compose-file /production/InfraDevOps/Docker/docker-compose.yml infradevops
+# - name: Deploy a service to the Cluster
+#   shell: >
+#       docker stack deploy --compose-file /production/InfraDevOps/Docker/docker-compose.yml infradevops
 
 - name: Deploy a visualizer container for Oral présentation
   shell: >
